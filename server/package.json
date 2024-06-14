@@ -1,0 +1,32 @@
+{
+  "name": "messold_server",
+  "version": "1.0.0",
+  "description": "This Node.js backend service provides a reliable and efficient solution for integrating with Shopify, enabling seamless product data management and real-time updates for e-commerce applications. Its scalable and modular design ensures it can grow with your business needs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tech-Xposer/messold.git"
+  },
+  "author": "Ashutosh Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tech-Xposer/messold/issues"
+  },
+  "homepage": "https://github.com/Tech-Xposer/messold#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3",
+    "prettier": "^3.3.2"
+  }
+}
