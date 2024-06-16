@@ -45,10 +45,11 @@ class ApiResponse {
 			error: error,
 		});
 	}
-	static notFound(res) {
+	static notFound(res, message) {
 		res.status(404).json({
 			status: "error",
 			error: "Not found",
+			message:message
 		});
 	}
 	static notAcceptable(res, error) {
@@ -93,8 +94,8 @@ class ApiResponse {
 			error: error,
 		});
 	}
-	static error(res, error, status = 500) {
-		res.status(status).json({
+	static error(res, error, statusCode = 500) {
+		res.status(statusCode).json({
 			status: "error",
 			error: error,
 		});
