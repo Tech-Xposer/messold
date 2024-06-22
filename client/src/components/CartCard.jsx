@@ -54,7 +54,7 @@ const CartCard = ({ product, onRemove, onUpdateQuantity }) => {
 					{product.shopifyProduct.variants.some(
 						(variant) =>
 							variant.title === product.variant &&
-							variant.inventory_quantity >`` product.quantity
+							variant.inventory_quantity > product.quantity
 					) ? (
 						<p className="text-green-500">In Stock</p>
 					) : (
