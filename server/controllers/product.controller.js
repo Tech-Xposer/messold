@@ -64,7 +64,7 @@ export const addToCart = async (req, res) => {
   try {
     const { id } = req.params;
     const userId = req.user.id;
-    const { quantity } = req.body;
+    const { quantity, variant } = req.body;
 
     if (!id) {
       throw new ApiError(400, "Product ID is required!");
@@ -88,6 +88,7 @@ export const addToCart = async (req, res) => {
           {
             id: product.id,
             quantity: quantity || 1,
+            variant: variant || product.variants[0].id,
           },
         ],
       });
@@ -101,6 +102,7 @@ export const addToCart = async (req, res) => {
         cart.products.push({
           id: product.id,
           quantity: quantity || 1,
+          variant: variant || product.variants[0].id,
         });
       }
     }
