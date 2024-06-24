@@ -22,7 +22,9 @@ const DropDown = () => {
 
 	const handleLogout = async () => {
 		try {
-			const response = await axios.post("/api/v1/auth/logout");
+			const response = await axios.post(`${import.meta.env.VITE_SERVER_HOST}/api/v1/auth/logout`,{},{
+				withCredentials:true
+			});
 			if (response.status === 204) {
 				localStorage.removeItem("token");
 				setIsLoggedIn(false);

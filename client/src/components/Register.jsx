@@ -4,7 +4,6 @@ import axios from "axios";
 import { Linkedin, Github, Facebook, Eye, EyeOff } from "lucide-react";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
-import useLoggegIn from "../services/auth.service";
 
 const Register = () => {
 	const [showHide, setShowHide] = useState(false);
@@ -38,29 +37,29 @@ const Register = () => {
 			toast.error("Please fill all the fields");
 			return;
 		}
-		// if (!validator.isEmail(email)) {
-		// 	toast.error("Invalid Email");
-		// 	return;
-		// }
-		// if (password.length < 8) {
-		// 	toast.error("Password should be at least 8 characters");
-		// 	return;
-		// }
-		// if (!validator.isStrongPassword(password)) {
-		// 	toast.error("Password should be strong");
-		// 	return;
-		// }
-		// if (phone.length !== 10) {
-		// 	toast.error("Invalid Phone Number");
-		// 	return;
-		// }
-		// if (!validator.isPincode(pincode)) {
-		// 	toast.error("Invalid Pincode");
-		// 	return;
-		// }
+		if (!validator.isEmail(email)) {
+			toast.error("Invalid Email");
+			return;
+		}
+		if (password.length < 8) {
+			toast.error("Password should be at least 8 characters");
+			return;
+		}
+		if (!validator.isStrongPassword(password)) {
+			toast.error("Password should be strong");
+			return;
+		}
+		if (phone.length !== 10) {
+			toast.error("Invalid Phone Number");
+			return;
+		}
+		if (!validator.isPincode(pincode)) {
+			toast.error("Invalid Pincode");
+			return;
+		}
 		// API CALL
 		try {
-			const response = await axios.post("/api/v1/auth/register", {
+			const response = await axios.post(`${import.meta.env.VITE_SERVER_HOST}/api/v1/auth/register`, {
 				email,
 				password,
 				phone,

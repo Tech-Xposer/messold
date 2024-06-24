@@ -8,7 +8,10 @@ const Store = () => {
 	const getProducts = async () => {
 		try {
 			const { data } = await axios.get(
-				`/api/v1/products?page=${currentPage}&limit=6`
+				`${import.meta.env.VITE_SERVER_HOST}/api/v1/products?page=${currentPage}&limit=6`,
+				{
+					withCredentials: true,
+				}
 			);
 			setProducts(data.data.products);
 			console.log("Fetched products:", data.data.products);

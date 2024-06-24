@@ -71,10 +71,16 @@ const Product = () => {
 	const handleAddToCartClick = async () => {
 		try {
 			console.log(id);
-			const response = await axios.post(`/api/v1/products/addtocart/${id}`, {
-				quantity: quantity,
-				variant: currentVariant,
-			});
+			const response = await axios.post(
+				`${import.meta.env.VITE_SERVER_HOST}/api/v1/products/addtocart/${id}`,
+				{
+					quantity: quantity,
+					variant: currentVariant,
+				},
+				{
+					withCredentials: true,
+				}
+			);
 			if (response.status === 200) {
 				console.log("Product added to cart successfully", response.data);
 				toast.success("Product added to cart successfully");

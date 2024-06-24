@@ -36,10 +36,16 @@ const Login = () => {
 		}
 		// API CALL
 		try {
-			const response = await axios.post("/api/v1/auth/login", {
-				email,
-				password,
-			});
+			const response = await axios.post(
+				`${import.meta.env.VITE_SERVER_HOST}/api/v1/auth/login`,
+				{
+					email,
+					password,
+				},
+				{
+					withCredentials: true,
+				}
+			);
 			console.log(response);
 			if (response.status === 200) {
 				toast.success("Login Successful");
