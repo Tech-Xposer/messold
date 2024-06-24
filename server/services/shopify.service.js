@@ -13,7 +13,7 @@ const shopify = new Shopify({
   shopName: SHOPIFY_STORE_DOMAIN,
   accessToken: SHOPIFY_ACCESS_TOKEN,
 });
-if (process.env.ENV === "dev") {
+if (process.env.NODE_ENV === "dev") {
   async function testShopifyConnection() {
     try {
       const shop = await shopify.shop.get();
